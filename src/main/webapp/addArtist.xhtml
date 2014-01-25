@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<h:form id="artistBean">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+			<p:panel header="Add Artist">
+				<h:panelGrid columns="2">
+
+					<h:outputText value="#{msg.artistFirstNameLabel}" />
+					<p:inputText id="firstName" value="#{artistBean.artist.firstName}">
+						<f:validator validatorId="mandatoryValidator" />
+						<p:ajax update="messages" event="keyup"></p:ajax>
+					</p:inputText>
+					<h:outputText value="#{msg.artistLastNameLabel}" />
+					<p:inputText id="lastName" value="#{artistBean.artist.lastName}">
+						<f:validator validatorId="mandatoryValidator" />
+						<p:ajax update="messages" event="keyup"></p:ajax>
+					</p:inputText>
+
+					<h:outputText value="#{msg.artistSalaryLabel}" />
+					<p:inputText id="salary" value="#{artistBean.artist.salary}">
+						<f:validateDoubleRange minimum="1366.5" maximum="1000000.0" />
+						<p:ajax update="messages" event="keyup"></p:ajax>
+					</p:inputText>
+					<h:outputText value="#{msg.artistCountryLabel}" />
+					<p:inputText id="country" value="#{artistBean.artist.country}">
+						<f:validator validatorId="mandatoryValidator" />
+						<p:ajax update="messages" event="keyup"></p:ajax>
+					</p:inputText>
+					<h:outputText value="#{msg.artistBornLabel}" />
+					<p:calendar value="#{artistBean.artist.bornDate}" id="calendarBorn"
+						datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+						style="width:200px">
+					</p:calendar>
+					<h:commandButton value="#{msg.artistFormOKButton}"
+						action="#{artistBean.addArtist}" />
+				</h:panelGrid>
+			</p:panel>
+
+
+			<h:panelGrid>
+				<p:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

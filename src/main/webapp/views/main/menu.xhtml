@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<div>
+		<h:form>
+			<p:menu>
+				
+				<p:submenu label="Manage Artist">
+					<p:menuitem value="#{msg.artistAddLabel}" outcome="addArtist?faces-redirect=true"
+						icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.artistShowLabel}" outcome="showArtist?faces-redirect=true"
+						icon="ui-icon-star" />
+				</p:submenu>
+				<p:submenu label="Manage Album">
+					<p:menuitem value="#{msg.albumAddLabel}" outcome="addAlbum?faces-redirect=true"
+						icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.albumShowLabel}" outcome="showAlbum?faces-redirect=true"
+						icon="ui-icon-star" />
+				</p:submenu>
+				<p:submenu label="Manage Song">
+					<p:menuitem value="#{msg.songAddLabel}" outcome="addSong?faces-redirect=true"
+						icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.songShowLabel}" outcome="showSong?faces-redirect=true"
+						icon="ui-icon-star" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</div>
+</ui:composition>

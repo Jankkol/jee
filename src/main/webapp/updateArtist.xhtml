@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<h:form id="artistBean">
+			<p:growl id="growl" showDetail="true" sticky="true" />
+			<p:panel header="Edit Artist">
+				<h:panelGrid columns="2">
+
+					<h:outputText value="#{msg.artistFirstNameLabel}" />
+					<p:inputText id="firstName" value="#{artistBean.artist.firstName}">
+						<f:validator update="messages" validatorId="mandatoryValidator" />
+					</p:inputText>
+					<h:outputText value="#{msg.artistLastNameLabel}" />
+					<p:inputText id="lastName" value="#{artistBean.artist.lastName}">
+						<f:validator update="messages" validatorId="mandatoryValidator" />
+					</p:inputText>
+
+					<h:outputText value="#{msg.artistSalaryLabel}" />
+					<p:inputText id="salary" value="#{artistBean.artist.salary}">
+						<f:validateDoubleRange minimum="1366.5" maximum="1000000.0" />
+						<p:ajax update="messages" validatorId="mandatoryValidator"></p:ajax>
+					</p:inputText>
+					<h:outputText value="#{msg.artistCountryLabel}" />
+					<p:inputText id="country" value="#{artistBean.artist.country}">
+						<f:validator update="messages" validatorId="mandatoryValidator" />
+					</p:inputText>
+					<h:outputText value="#{msg.artistBornLabel}" />
+					<p:calendar value="#{artistBean.artist.bornDate}" id="calendarBorn"
+						datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+						style="width:200px">
+					</p:calendar>
+				</h:panelGrid>
+
+				<h:commandButton value="#{msg.artistFormOKButton}"
+					action="#{artistBean.updateArtist}" />
+
+				<h:panelGrid>
+					<h:messages id="messages" showDetail="#{true}"
+						showSummary="#{false}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

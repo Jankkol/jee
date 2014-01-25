@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<h:form id="albumBean">
+			<p:growl id="growl" showDetail="true" sticky="true" />
+			<p:panel header="Add album">
+				<h:panelGrid columns="2">
+
+					<h:outputText value="#{msg.albumNameLabel}" />
+					<p:inputText id="name" value="#{albumBean.album.name}">
+						<f:validator validatorId="albumValidator" />
+					</p:inputText>
+					<h:outputText value="#{msg.albumCoverLabel}" />
+					<p:inputText id="coverImage" value="#{albumBean.album.coverImage}" />
+					<h:outputText value="#{msg.albumyopLabel}" />
+					<p:calendar value="#{albumBean.album.yop}" id="yop"
+						datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+						style="width:200px">
+					</p:calendar>
+					<h:outputText value="#{msg.albumArtistLabel}" />
+					<p:selectOneMenu value="#{albumBean.artistId}">
+						<f:selectItems value="#{albumBean.allArtists}" var="artist"
+							itemValue="#{artist.id}" itemLabel="#{artist.firstName}" />
+					</p:selectOneMenu>
+					<h:commandButton value="#{msg.artistFormOKButton}"
+						action="#{albumBean.addAlbum}" />
+				</h:panelGrid>
+
+
+
+				<h:panelGrid>
+					<p:messages id="messages" showDetail="#{true}"
+						showSummary="#{false}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

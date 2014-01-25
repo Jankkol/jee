@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<h:form>
+
+			<p:dataTable value="#{albumBean.songs}" var="item"
+				resizableColumns="true" liveResize="true" id="liveResizeTable">
+
+				<f:facet name="header">#{msg.albumSonglist}</f:facet>
+				<p:column>
+					<f:facet sortBy="position" name="header">#{msg.songPositionLabel}</f:facet>
+					<h:outputText value="#{item.position}" />
+				</p:column>
+				<p:column>
+					<f:facet sortBy="name" name="header">#{msg.songTitleLabel}</f:facet>
+					<h:outputText value="#{item.title}" />
+				</p:column>
+
+				<p:column>
+					<f:facet sortBy="coverImage" name="header">#{msg.songDurationLabel}</f:facet>
+					<h:outputText value="#{item.time}" />
+				</p:column>
+				<p:column>
+					<f:facet sortBy="name" name="header">#{msg.songGenreLabel}</f:facet>
+					<h:outputText value="#{item.genre}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
