@@ -6,17 +6,17 @@
 <title>JEEDemo Login</title>
 </head>
 <body>
-        <h2>Please login</h2>
-        <form method="post" action="j_security_check">
-                <p>
-                        Login: <input type="text" name="j_username" />
-                </p>
-                <p>
-                        Password: <input type="password" name="j_password" />
-                </p>
-                <p>
-                        <input type="submit" value=" Login " />
-                </p>
-        </form>
+	<h2>Please login</h2>
+	<form method="post" action="j_security_check">
+		<p>
+			Login: <input type="text" name="j_username" />
+		</p>
+		<p>
+			Password: <input type="password" name="j_password" />
+		</p>
+		<p>
+			<input type="submit" value=" Login " />
+		</p>
+	</form>
 </body>
 </html>

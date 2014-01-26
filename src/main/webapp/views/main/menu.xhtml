@@ -7,24 +7,25 @@
 	<div>
 		<h:form>
 			<p:menu>
-				
+
 				<p:submenu label="Manage Artist">
-					<p:menuitem value="#{msg.artistAddLabel}" outcome="addArtist?faces-redirect=true"
-						icon="ui-icon-disk" />
-					<p:menuitem value="#{msg.artistShowLabel}" outcome="showArtist?faces-redirect=true"
-						icon="ui-icon-star" />
+					<p:menuitem value="#{msg.artistAddLabel}"
+						rendered="checkUser.isLogged==true"
+						outcome="addArtist?faces-redirect=true" icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.artistShowLabel}"
+						outcome="showArtist?faces-redirect=true" icon="ui-icon-star" />
 				</p:submenu>
 				<p:submenu label="Manage Album">
-					<p:menuitem value="#{msg.albumAddLabel}" outcome="addAlbum?faces-redirect=true"
-						icon="ui-icon-disk" />
-					<p:menuitem value="#{msg.albumShowLabel}" outcome="showAlbum?faces-redirect=true"
-						icon="ui-icon-star" />
+					<p:menuitem value="#{msg.albumAddLabel}"
+						outcome="addAlbum?faces-redirect=true" icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.albumShowLabel}"
+						outcome="showAlbum?faces-redirect=true" icon="ui-icon-star" />
 				</p:submenu>
 				<p:submenu label="Manage Song">
-					<p:menuitem value="#{msg.songAddLabel}" outcome="addSong?faces-redirect=true"
-						icon="ui-icon-disk" />
-					<p:menuitem value="#{msg.songShowLabel}" outcome="showSong?faces-redirect=true"
-						icon="ui-icon-star" />
+					<p:menuitem value="#{msg.songAddLabel}"
+						outcome="addSong?faces-redirect=true" icon="ui-icon-disk" />
+					<p:menuitem value="#{msg.songShowLabel}"
+						outcome="showSong?faces-redirect=true" icon="ui-icon-star" />
 				</p:submenu>
 			</p:menu>
 		</h:form>
