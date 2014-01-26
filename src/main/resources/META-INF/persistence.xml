@@ -17,7 +17,7 @@
 		<!-- Use this data source name for Glassfish -->
 		<!--  <jta-data-source>jdbc/__default</jta-data-source> -->
 
-		<jta-data-source>jdbc/demoapps</jta-data-source>
+		<jta-data-source>jdbc/Auth</jta-data-source>
 		
 		<properties>
 			<!-- Properties for Hibernate (default provider for JBoss AS) -->

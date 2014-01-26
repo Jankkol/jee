@@ -4,4 +4,41 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<display-name>jsfdemo</display-name>
+	<security-constraint>
+		<display-name>Security settings</display-name>
+		<web-resource-collection>
+			<web-resource-name>Admin</web-resource-name>
+			<url-pattern>/admin/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>Available groups</description>
+			<role-name>ADMIN</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<display-name>Security settings</display-name>
+		<web-resource-collection>
+			<web-resource-name>Manager</web-resource-name>
+			<url-pattern>/manager/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>Available groups</description>
+			<role-name>ADMIN</role-name>
+			<role-name>MANAGER</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>myDBRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/loginError.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<role-name>ADMIN</role-name>
+	</security-role>
+	<security-role>
+		<role-name>MANAGER</role-name>
+	</security-role>
 </web-app>
