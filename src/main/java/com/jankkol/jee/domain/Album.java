@@ -66,7 +66,7 @@ public class Album {
 		return yop;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	public Artist getArtist() {
 		return artist;
 	}

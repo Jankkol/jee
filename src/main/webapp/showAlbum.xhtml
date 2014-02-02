@@ -24,7 +24,10 @@
                         <f:convertDateTime pattern="yyyy" type="date"/>
                     </h:outputText>
                 </p:column>
-
+                <p:column>
+                    <f:facet name="header">#{msg.artistLabel}</f:facet>
+                    <h:outputText value="#{item.artist.firstName} #{item.artist.lastName}"/>
+                </p:column>
                 <p:column>
                     <f:facet name="header">#{msg.action}</f:facet>
                     <h:commandLink value="#{msg.actionDelete}"

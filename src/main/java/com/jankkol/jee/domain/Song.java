@@ -68,6 +68,7 @@ public class Song {
 		this.position = position;
 	}
 
+    @ManyToOne(cascade = CascadeType.DETACH , fetch = FetchType.LAZY)
 	public Album getAlbum() {
 		return album;
 	}
@@ -76,6 +77,7 @@ public class Song {
 		this.album = album;
 	}
 
+    @ManyToOne(cascade = CascadeType.DETACH , fetch = FetchType.LAZY)
 	public Artist getArtist() {
 		return artist;
 	}

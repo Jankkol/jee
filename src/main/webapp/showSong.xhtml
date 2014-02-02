@@ -26,6 +26,14 @@
 					<f:facet name="header">#{msg.songGenreLabel}</f:facet>
 					<h:outputText value="#{item.genre}" />
 				</p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.albumLabel}</f:facet>
+                    <h:outputText value="#{item.album.name}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.artistLabel}</f:facet>
+                    <h:outputText value="#{item.artist.firstName} #{item.artist.lastName}" />
+                </p:column>
 				<p:column>
 					<f:facet name="header">#{msg.action}</f:facet>
 					<h:commandLink value="#{msg.actionUpdate}"

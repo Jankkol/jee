@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="content">
-		<h:form id="songBean">
-		<p:growl id="growl" showDetail="true" sticky="true" />
-			<p:panelGrid columns="2">
+    <ui:define name="content">
+        <h:form id="songBean">
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+            <p:panel header="Update song">
+                <p:panelGrid columns="2">
 
-				<h:outputText value="#{msg.songPositionLabel}" />
-				<h:inputText id="position" value="#{songBean.song.position}" />
-				<h:outputText value="#{msg.songTitleLabel}" />
-				<h:inputText id="title" value="#{songBean.song.title}">
-					<f:validator validatorId="mandatoryValidator" />
-				</h:inputText>
-				<h:outputText value="#{msg.songTimeLabel}" />
-				<h:inputText id="time" value="#{songBean.song.time}">
-				</h:inputText>
-				<h:outputText value="#{msg.songGenreLabel}" />
-				<h:inputText id="genre" value="#{songBean.song.genre}">
-				</h:inputText>
-				<h:outputText value="#{msg.songArtistLabel}" />
-				<p:selectOneMenu value="#{songBean.artistId}">
-					<f:selectItems value="#{songBean.allArtists}" var="artist"
-						itemValue="#{artist.id}" itemLabel="#{artist.firstName}" />
-				</p:selectOneMenu>
-				<h:outputText value="#{msg.songAlbumLabel}" />
-				<p:selectOneMenu value="#{songBean.albumId}">
-					<f:selectItems value="#{songBean.allAlbums}" var="album"
-						itemValue="#{album.id}" itemLabel="#{album.name}" />
-				</p:selectOneMenu>
-			</p:panelGrid>
+                    <h:outputText value="#{msg.songPositionLabel}"/>
+                    <h:inputText id="position" value="#{songBean.song.position}"/>
+                    <h:outputText value="#{msg.songTitleLabel}"/>
+                    <h:inputText id="title" value="#{songBean.song.title}">
+                        <f:validator validatorId="mandatoryValidator"/>
+                    </h:inputText>
+                    <h:outputText value="#{msg.songTimeLabel}"/>
+                    <h:inputText id="time" value="#{songBean.song.time}">
+                    </h:inputText>
+                    <h:outputText value="#{msg.songGenreLabel}"/>
+                    <h:inputText id="genre" value="#{songBean.song.genre}">
+                    </h:inputText>
+                    <h:outputText value="#{msg.songArtistLabel}"/>
+                    <p:selectOneMenu value="#{songBean.artistId}">
+                        <f:selectItems value="#{songBean.allArtists}" var="artist"
+                                       itemValue="#{artist.id}" itemLabel="#{artist.firstName} #{artist.lastName}"/>
+                    </p:selectOneMenu>
+                    <h:outputText value="#{msg.songAlbumLabel}"/>
+                    <p:selectOneMenu value="#{songBean.albumId}">
+                        <f:selectItems value="#{songBean.allAlbums}" var="album"
+                                       itemValue="#{album.id}" itemLabel="#{album.name}"/>
+                    </p:selectOneMenu>
 
-			<h:commandButton value="#{msg.artistFormOKButton}"
-				action="#{songBean.updateSong}" />
+                </p:panelGrid>
+            </p:panel>
+            <h:commandButton value="#{msg.artistFormOKButton}"
+                             action="#{songBean.updateSong}"/>
 
-			<h:panelGrid>
-				<p:messages id="messages" showDetail="#{true}"
-					showSummary="#{false}" />
-			</h:panelGrid>
+            <h:panelGrid>
+                <p:messages id="messages" showDetail="#{true}"
+                            showSummary="#{false}"/>
+            </h:panelGrid>
 
-		</h:form>
+        </h:form>
 
-	</ui:define>
+    </ui:define>
 </ui:composition>

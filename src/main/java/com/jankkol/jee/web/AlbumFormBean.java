@@ -25,7 +25,6 @@ public class AlbumFormBean implements Serializable {
 	private ListDataModel<Song> songs = new ListDataModel<Song>();
 	
 	private Album albumToShow = new Album();
-	
 
 	@Inject
 	private AlbumService as;

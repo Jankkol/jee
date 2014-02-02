@@ -38,16 +38,11 @@ public class AlbumService implements Serializable {
 
     public void deleteAlbum(Album album){
         album = em.find(Album.class, album.getId());
+        Artist artist = em.find(Artist.class, album.getArtist().getId());
+        artist.getAlbums().remove(album);
+        em.merge(artist);
         em.remove(album);
     }
-
-	/*public void deleteAlbum(Album album) {
-		album = em.find(Album.class, album.getId());
-		Artist artist = em.find(Artist.class, album.getArtist().getId());
-		artist.getAlbums().remove(album);
-		em.merge(artist);
-		em.remove(album);
-	}*/
 
 	@SuppressWarnings("unchecked")
 	public List<Album> getAllAlbums() {

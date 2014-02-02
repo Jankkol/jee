@@ -27,7 +27,7 @@
 					<h:outputText value="#{msg.songArtistLabel}" />
 					<p:selectOneMenu value="#{songBean.artistId}">
 						<f:selectItems value="#{songBean.allArtists}" var="artist"
-							itemValue="#{artist.id}" itemLabel="#{artist.firstName}" />
+							itemValue="#{artist.id}" itemLabel="#{artist.firstName} #{artist.lastName}" />
 					</p:selectOneMenu>
 					<h:outputText value="#{msg.songAlbumLabel}" />
 					<p:selectOneMenu value="#{songBean.albumId}">
