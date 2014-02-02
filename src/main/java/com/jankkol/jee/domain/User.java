@@ -4,13 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({ @NamedQuery(name = "user.find", query = "Select u from User u where u.username=:name")
+	})
 public class User {
         
         private Long id;
         private String username;
         private String password;
+        private String role;
         
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,6 +37,14 @@ public class User {
         public void setPassword(String password) {
                 this.password = password;
         }
+		public String getRole() {
+			return role;
+		}
+		public void setRole(String role) {
+			this.role = role;
+		}
+        
+        
         
         
 
