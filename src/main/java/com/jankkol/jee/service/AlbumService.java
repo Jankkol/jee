@@ -25,20 +25,6 @@ public class AlbumService implements Serializable {
 	@PersistenceContext
 	EntityManager em;
 
-	/*
-	 * public void addAlbum(Album album, Long[] artistId) { album.setId(null);
-	 * em.persist(album); for (Long id : artistId) { Artist artist = new
-	 * Artist(); artist = (Artist) em.createNamedQuery("artist.findById")
-	 * .setParameter("id", id).getSingleResult();
-	 * 
-	 * album.getArtist().add(artist); em.merge(album);
-	 * //artist.getAlbums().add(album); em.merge(artist);
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
-
 	public void addAlbum(Album album, Long artistId) {
 
 		album.setId(null);
@@ -50,13 +36,18 @@ public class AlbumService implements Serializable {
 
 	}
 
-	public void deleteAlbum(Album album) {
+    public void deleteAlbum(Album album){
+        album = em.find(Album.class, album.getId());
+        em.remove(album);
+    }
+
+	/*public void deleteAlbum(Album album) {
 		album = em.find(Album.class, album.getId());
 		Artist artist = em.find(Artist.class, album.getArtist().getId());
 		artist.getAlbums().remove(album);
 		em.merge(artist);
 		em.remove(album);
-	}
+	}*/
 
 	@SuppressWarnings("unchecked")
 	public List<Album> getAllAlbums() {

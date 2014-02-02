@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="content">
-		<h:form>
-			<p:dataTable value="#{artistBean.allArtist}" var="item">
-				<f:facet name="header">#{msg.artistAllLabel}</f:facet>
-				<p:column>
-					<f:facet name="header">#{msg.artistFirstNameLabel}</f:facet>
-					<h:outputText value="#{item.firstName}" />
-				</p:column>
+    <ui:define name="content">
+        <h:form>
+            <p:dataTable value="#{artistBean.allArtist}" var="item">
+                <f:facet name="header">#{msg.artistAllLabel}</f:facet>
+                <p:column>
+                    <f:facet name="header">#{msg.artistFirstNameLabel}</f:facet>
+                    <h:outputText value="#{item.firstName}"/>
+                </p:column>
 
-				<p:column>
-					<f:facet name="header">#{msg.artistLastNameLabel}</f:facet>
-					<h:outputText value="#{item.lastName}" />
-				</p:column>
-				<p:column>
-					<f:facet name="header">#{msg.artistCountryLabel}</f:facet>
-					<h:outputText value="#{item.country}" />
-				</p:column>
-				<p:column>
-					<f:facet name="header">#{msg.artistBornLabel}</f:facet>
-					<h:outputText value="#{item.bornDate}" datePattern="dd.MM.yyyy" />
-				</p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.artistLastNameLabel}</f:facet>
+                    <h:outputText value="#{item.lastName}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.artistCountryLabel}</f:facet>
+                    <h:outputText value="#{item.country}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.artistBornLabel}</f:facet>
+                    <h:outputText value="#{item.bornDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" type="date"/>
+                    </h:outputText>
+                </p:column>
 
-				<p:column>
-					<f:facet name="header">#{msg.action}</f:facet>
-					<h:commandLink value="#{msg.actionDelete}"
-						action="#{artistBean.deleteArtist}" />
-				</p:column>
-				<p:column>
-					<f:facet name="header">#{msg.action}</f:facet>
-					<h:commandLink value="#{msg.actionEdit}"
-						action="#{artistBean.editArtist}" />
-				</p:column>
-				<p:column>
-					<f:facet name="header">#{msg.action}</f:facet>
-					<h:commandLink value=" Albums " action="#{artistBean.showDetails}" />
-				</p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.actionDelete}"
+                                   action="#{artistBean.deleteArtist}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.actionEdit}"
+                                   action="#{artistBean.editArtist}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value=" Albums " action="#{artistBean.showDetails}"/>
+                </p:column>
 
-			</p:dataTable>
-		</h:form>
+            </p:dataTable>
+        </h:form>
 
-	</ui:define>
+    </ui:define>
 
 </ui:composition>

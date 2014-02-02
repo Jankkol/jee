@@ -93,7 +93,7 @@ public class Artist {
 		this.bornDate = bornDate;
 	}
 
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+	@OneToMany(cascade = { CascadeType.ALL}, fetch = FetchType.LAZY)
 	public List<Album> getAlbums() {
 		return albums;
 	}

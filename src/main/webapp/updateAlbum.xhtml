@@ -23,7 +23,8 @@
 					<h:outputText value="#{msg.albumArtistLabel}" />
 					<p:selectOneMenu value="#{albumBean.artistId}">
 						<f:selectItems value="#{albumBean.allArtists}" var="artist"
-							itemValue="#{artist.id}" itemLabel="#{artist.firstName}" />
+							itemValue="#{artist.id}" itemLabel="#{artist.firstName}">
+                        </f:selectItems>
 					</p:selectOneMenu>
 					<h:commandButton value="#{msg.artistFormOKButton}"
 						action="#{albumBean.updateAlbum}" />

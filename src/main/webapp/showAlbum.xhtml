@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml" xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="content">
-		<h:form>
-				<p:dataTable value="#{albumBean.allAlbums}" var="item"
-					resizableColumns="true" liveResize="true" id="liveResizeTable">
-					<f:facet name="header">#{msg.albumAllLabel}</f:facet>
-					<p:column>
-						<f:facet name="header">#{msg.albumNameLabel}</f:facet>
-						<h:outputText value="#{item.name}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">#{msg.albumyopLabel}</f:facet>
-						<h:outputText value="#{item.yop}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">#{msg.artistLastNameLabel}</f:facet>
-						<h:outputText value="#{item.coverImage}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">#{msg.action}</f:facet>
-						<h:commandLink value="#{msg.actionDelete}"
-							action="#{albumBean.deleteAlbum}" />
+    <ui:define name="content">
+        <h:form>
+            <p:dataTable value="#{albumBean.allAlbums}" var="item"
+                         resizableColumns="true" liveResize="true" id="liveResizeTable">
+                <f:facet name="header">#{msg.albumAllLabel}</f:facet>
+                <p:column>
+                    <f:facet name="header">#{msg.albumNameLabel}</f:facet>
+                    <h:outputText value="#{item.name}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.albumCoverLabel}</f:facet>
+                    <h:outputText value="#{item.coverImage}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.albumyopLabel}</f:facet>
+                    <h:outputText value="#{item.yop}">
+                        <f:convertDateTime pattern="yyyy" type="date"/>
+                    </h:outputText>
+                </p:column>
 
-					</p:column>
-					<p:column>
-						<f:facet name="header">#{msg.action}</f:facet>
-						<h:commandLink value="Edit" action="#{albumBean.editAlbum}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">#{msg.action}</f:facet>
-						<h:commandLink value=" Details " action="#{albumBean.showDetails}" />
-					</p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.actionDelete}"
+                                   action="#{albumBean.deleteAlbum}"/>
 
-				</p:dataTable>
-		</h:form>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="Edit" action="#{albumBean.editAlbum}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value=" Details " action="#{albumBean.showDetails}"/>
+                </p:column>
 
-	</ui:define>
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
 
 </ui:composition>

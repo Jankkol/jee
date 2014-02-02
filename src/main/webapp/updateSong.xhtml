@@ -8,7 +8,7 @@
 	<ui:define name="content">
 		<h:form id="songBean">
 		<p:growl id="growl" showDetail="true" sticky="true" />
-			<h:panelGrid columns="2">
+			<p:panelGrid columns="2">
 
 				<h:outputText value="#{msg.songPositionLabel}" />
 				<h:inputText id="position" value="#{songBean.song.position}" />
@@ -32,7 +32,7 @@
 					<f:selectItems value="#{songBean.allAlbums}" var="album"
 						itemValue="#{album.id}" itemLabel="#{album.name}" />
 				</p:selectOneMenu>
-			</h:panelGrid>
+			</p:panelGrid>
 
 			<h:commandButton value="#{msg.artistFormOKButton}"
 				action="#{songBean.updateSong}" />
